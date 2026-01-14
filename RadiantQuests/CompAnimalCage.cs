@@ -162,7 +162,7 @@ namespace SWCP.RadiantQuests
             Log.Message("Generating and inserting animal");
             PawnKindDef def = parent.Map.Biome.AllWildAnimals.Where(c => Props.animalsThatGetCaught.Any(x => c == x)).RandomElement();
             Pawn pawn = PawnGenerator.GeneratePawn(def);
-            Letter letter = LetterMaker.MakeLetter("FCP_CageAnimalCapturedLabel".Translate(), "FCP_CageAnimalCapturedText".Translate(pawn), LetterDefOf.PositiveEvent, base.parent);
+            Letter letter = LetterMaker.MakeLetter("SWCP_CageAnimalCapturedLabel".Translate(), "SWCP_CageAnimalCapturedText".Translate(pawn), LetterDefOf.PositiveEvent, base.parent);
             Find.LetterStack.ReceiveLetter(letter);
             this.InsertPawn(pawn);
         }
@@ -262,8 +262,8 @@ namespace SWCP.RadiantQuests
             {
                 if (item is Pawn pawn)
                 {
-                    JobDef jobDef = DefOfs.FCP_ReleaseAnimalFromCage;
-                    string label = "FCP_ReleaseAnimalFromCage".Translate(pawn.Label);
+                    JobDef jobDef = DefOfs.SWCP_ReleaseAnimalFromCage;
+                    string label = "SWCP_ReleaseAnimalFromCage".Translate(pawn.Label);
                     Action action = delegate
                     {
                         Job job = JobMaker.MakeJob(jobDef, parent);
@@ -274,7 +274,7 @@ namespace SWCP.RadiantQuests
                     yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(label, action), selPawn, parent);
 
 
-                    string label1 = "FCP_TransferAnimalBetweenCages".Translate(pawn.Label);
+                    string label1 = "SWCP_TransferAnimalBetweenCages".Translate(pawn.Label);
                     Action action1 = delegate
                     {
                         AnimalCageUtility.TargetCageForAnimal(selPawn, pawn, true, parent);
@@ -296,7 +296,7 @@ namespace SWCP.RadiantQuests
             Command_Toggle command_Toggle = new Command_Toggle();
             command_Toggle.icon = null;
             command_Toggle.isActive = () => ShouldCapture;
-            command_Toggle.defaultLabel = "FCP_ShouldCaptureCommand".Translate();
+            command_Toggle.defaultLabel = "SWCP_ShouldCaptureCommand".Translate();
             command_Toggle.activateIfAmbiguous = false;
             command_Toggle.toggleAction = delegate
             {
@@ -304,11 +304,11 @@ namespace SWCP.RadiantQuests
             };
             if (shouldCapture)
             {
-                command_Toggle.defaultDesc = "FCP_ShouldCaptureTrue".Translate();
+                command_Toggle.defaultDesc = "SWCP_ShouldCaptureTrue".Translate();
             }
             else
             {
-                command_Toggle.defaultDesc = "FCP_ShouldCaptureFalse".Translate();
+                command_Toggle.defaultDesc = "SWCP_ShouldCaptureFalse".Translate();
             }
             yield return command_Toggle;
             if (innerContainer.Count <= 0)

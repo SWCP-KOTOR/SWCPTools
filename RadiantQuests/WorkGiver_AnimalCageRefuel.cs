@@ -13,9 +13,9 @@ namespace SWCP.RadiantQuests
     {
         public override PathEndMode PathEndMode => PathEndMode.Touch;
 
-        public virtual JobDef JobStandard => DefOfs.FCP_RefuelAnimalCage;
+        public virtual JobDef JobStandard => DefOfs.SWCP_RefuelAnimalCage;
 
-        public virtual JobDef JobAtomic => DefOfs.FCP_RefuelAnimalCage_Atomic;
+        public virtual JobDef JobAtomic => DefOfs.SWCP_RefuelAnimalCage_Atomic;
 
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {

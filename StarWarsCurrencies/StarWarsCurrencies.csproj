@@ -4,14 +4,16 @@
     <RootNamespace>SWCP.Currencies</RootNamespace>
     <AssemblyName>SWCP_Currencies</AssemblyName>
     <AssemblyTitle>Fallout Currencies</AssemblyTitle>
+    <BaseOutputPath>L:\SteamLibrary\steamapps\common\RimWorld\Mods\SWCP\Assemblies</BaseOutputPath>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>portable</DebugType>
-    <OutputPath>..\..\..\1.6\Assemblies\</OutputPath>
+    <OutputPath>L:\SteamLibrary\steamapps\common\RimWorld\Mods\SWCP\Assemblies</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <OutputPath>..\..\..\1.6\Assemblies\</OutputPath>
+    <OutputPath>L:\SteamLibrary\steamapps\common\RimWorld\Mods\SWCP\Assemblies</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />

@@ -14,6 +14,7 @@ public static class Patches
     static Patches()
     {
         var harmony = SWCPCoreMod.harmony;
+        harmony.PatchAll();
         // Biome Feature Requirements
         harmony.Patch(original: AccessTools.Method(typeof(WildAnimalSpawner), "CommonalityOfAnimalNow"),
             postfix: new HarmonyMethod(typeof(Patches), nameof(WildAnimalSpawnerCommonalityOfAnimalNow_Postfix)));

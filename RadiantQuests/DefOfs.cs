@@ -11,10 +11,10 @@ namespace SWCP.RadiantQuests
     [DefOf]
     public static class DefOfs
     {
-        public static JobDef FCP_ReleaseAnimalFromCage;
-        public static JobDef FCP_RefuelAnimalCage;
-        public static JobDef FCP_RefuelAnimalCage_Atomic;
-        public static JobDef FCP_CarryAnimalToCage;
-        public static JobDef FCP_TransferAnimalBetweenCages;
+        public static JobDef SWCP_ReleaseAnimalFromCage;
+        public static JobDef SWCP_RefuelAnimalCage;
+        public static JobDef SWCP_RefuelAnimalCage_Atomic;
+        public static JobDef SWCP_CarryAnimalToCage;
+        public static JobDef SWCP_TransferAnimalBetweenCages;
     }
 }

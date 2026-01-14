@@ -8,13 +8,12 @@ public class SWCPCoreMod : Mod
 {
     public static SWCPCoreMod mod;
     public static SWCP_Settings Settings;
-    public static Harmony harmony;
+    public static HarmonyLib.Harmony harmony;
     public AssetBundle bundleInt;
     
     public SWCPCoreMod(ModContentPack content) : base(content)
     {
-        harmony = new Harmony("SWCP.Core.Patches"); // PatchesUwU ~ Steve
-        PatchAll();
+        harmony = new HarmonyLib.Harmony("SWCP.Core.Patches"); // PatchesUwU ~ Steve
         mod = this;
         Settings = GetSettings<SWCP_Settings>();
         SWCPLog.Warning("Beta version: bugs likely, if not guaranteed! " +
@@ -68,13 +67,13 @@ public class SWCPCoreMod : Mod
             }
 
             string bundlePath = Path.Combine(Content.RootDir, $@"SWCP-UnityAssets\Materials\{text}\SWCPshaders");
-            //SWCPLog.Message("Bundle Path: " + bundlePath);
+            SWCPLog.Message("Bundle Path: " + bundlePath);
 
             AssetBundle bundle = AssetBundle.LoadFromFile(bundlePath);
 
             if (bundle == null)
             {
-                SWCPLog.Error("Failed to load bundle at path: " + bundlePath);
+                SWCPLog.Message("Failed to load bundle at path: " + bundlePath);
             }
 
             bundleInt = bundle;

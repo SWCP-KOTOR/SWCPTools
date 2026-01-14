@@ -8,6 +8,7 @@ public class SWCP_Settings : ModSettings
     public int CooldownTicks = 600;
     public bool EnableSlowDownTime = true;
     public bool EnableZoom = true;
+    public static bool showShipRoof = false;
 
     public Dictionary<string, float> MultiplierLookup = new Dictionary<string, float>();
     public Vector2 scrollPosition = Vector2.zero;

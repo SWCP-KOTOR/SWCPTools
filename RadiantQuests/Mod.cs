@@ -14,7 +14,7 @@ namespace SWCP.RadiantQuests
         static HarmonyStarter()
         {
             Log.Message("Harmony starter started");
-            Harmony harmony = new Harmony("FCP.RadiantQuests");
+            Harmony harmony = new Harmony("SWCP.RadiantQuests");
             harmony.PatchAll();
         }
     }

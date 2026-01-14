@@ -27,43 +27,43 @@ public static class DamageWorker_Patch
                 ?.SetValueDirect(__makeref(dinfo), false);
         }
         
-        // Apply any applicable legendary effects
-        foreach (LegendaryEffectDef legendaryEffectDef in GetLegendaryEffectsFor(instigator))
-        {
-            legendaryEffectDef.Worker.ApplyEffect(ref dinfo, pawn);
-        }
+        //// Apply any applicable legendary effects
+        //foreach (LegendaryEffectDef legendaryEffectDef in GetLegendaryEffectsFor(instigator))
+        //{
+        //    legendaryEffectDef.Worker.ApplyEffect(ref dinfo, pawn);
+        //}
         return true;
     }
 
-    public static IEnumerable<LegendaryEffectDef> GetLegendaryEffectsFor(Pawn pawn)
-    {
-        if (
-            pawn.equipment?.Primary != null
-            && pawn.equipment.Primary.TryGetQuality(out QualityCategory quality)
-            && quality == QualityCategory.Legendary
-            && LegendaryEffectGameTracker.HasEffect(pawn.equipment.Primary)
-        )
-        {
-            foreach (LegendaryEffectDef effectDef in LegendaryEffectGameTracker.EffectsDict[pawn.equipment.Primary])
-            {
-                yield return effectDef;
-            }
-        }
+    //public static IEnumerable<LegendaryEffectDef> GetLegendaryEffectsFor(Pawn pawn)
+    //{
+    //    if (
+    //        pawn.equipment?.Primary != null
+    //        && pawn.equipment.Primary.TryGetQuality(out QualityCategory quality)
+    //        && quality == QualityCategory.Legendary
+    //        && LegendaryEffectGameTracker.HasEffect(pawn.equipment.Primary)
+    //    )
+    //    {
+    //        foreach (LegendaryEffectDef effectDef in LegendaryEffectGameTracker.EffectsDict[pawn.equipment.Primary])
+    //        {
+    //            yield return effectDef;
+    //        }
+    //    }
 
-        if (pawn.apparel != null)
-        {
-            foreach (
-                Apparel apparel in pawn
-                    .apparel.WornApparel
-                    .Where(app => app
-                        .TryGetQuality(out QualityCategory qual) && qual == QualityCategory.Legendary)
-                    .Where(LegendaryEffectGameTracker.HasEffect))
-            {
-                foreach (LegendaryEffectDef effectDef in LegendaryEffectGameTracker.EffectsDict[apparel])
-                {
-                    yield return effectDef;
-                }
-            }
-        }
-    }
+    //    if (pawn.apparel != null)
+    //    {
+    //        foreach (
+    //            Apparel apparel in pawn
+    //                .apparel.WornApparel
+    //                .Where(app => app
+    //                    .TryGetQuality(out QualityCategory qual) && qual == QualityCategory.Legendary)
+    //                .Where(LegendaryEffectGameTracker.HasEffect))
+    //        {
+    //            foreach (LegendaryEffectDef effectDef in LegendaryEffectGameTracker.EffectsDict[apparel])
+    //            {
+    //                yield return effectDef;
+    //            }
+    //        }
+    //    }
+    //}
 }

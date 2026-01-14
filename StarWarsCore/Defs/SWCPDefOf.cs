@@ -15,11 +15,9 @@ public class SWCPDefOf
     
     public static JobDef SWCP_VATS_AttackHybrid;
     public static ThingDef SWCP_VATS_Zoomer;
-    public static StatCategoryDef SWCP_LegendaryEffectStats;
-    public static EffecterDef SWCP_VATSLegendaryEffect_Explosive_Explosion;
 
-    public static LegendaryEffectDef SWCP_VATSLegendaryEffect_Rapid;
-    
+    //public static LegendaryEffectDef SWCP_VATSLegendaryEffect_Rapid;
+
     static SWCPDefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(SWCPDefOf));

@@ -40,7 +40,7 @@ namespace SWCP.RadiantQuests.HarmonyPatches
                 }
                 foreach (CompAnimalCage item in cages)
                 {
-                    text = "FCP_CarryAnimalToCage".Translate(target);
+                    text = "SWCP_CarryAnimalToCage".Translate(target);
                     if (target.IsQuestLodger())
                     {
                         text += " (" + "CryptosleepCasketGuestsNotAllowed".Translate() + ")";
@@ -54,7 +54,7 @@ namespace SWCP.RadiantQuests.HarmonyPatches
                     Thing pod = item.parent;
                     action = delegate
                     {
-                        Job job = JobMaker.MakeJob(DefOfs.FCP_CarryAnimalToCage, target, pod);
+                        Job job = JobMaker.MakeJob(DefOfs.SWCP_CarryAnimalToCage, target, pod);
                         job.count = 1;
                         pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
                     };

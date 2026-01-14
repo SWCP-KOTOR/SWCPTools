@@ -34,7 +34,7 @@ namespace SWCP.RadiantQuests
                     if (carrier != null)
                     {
                         Log.Message("Issuing job");
-                        Job job = (transferBetweenCages ? JobMaker.MakeJob(DefOfs.FCP_TransferAnimalBetweenCages, sourceCage, t, animal) : JobMaker.MakeJob(DefOfs.FCP_CarryAnimalToCage, t, animal));
+                        Job job = (transferBetweenCages ? JobMaker.MakeJob(DefOfs.SWCP_TransferAnimalBetweenCages, sourceCage, t, animal) : JobMaker.MakeJob(DefOfs.SWCP_CarryAnimalToCage, t, animal));
                         job.count = 1;
                         carrier.jobs.TryTakeOrderedJob(job, JobTag.Misc);
                     }
@@ -50,12 +50,12 @@ namespace SWCP.RadiantQuests
                 CompAnimalCage compAnimalCage = t.Thing?.TryGetComp<CompAnimalCage>();
                 if (compAnimalCage == null)
                 {
-                    TaggedString label = "FCP_ChooseAnimalCage".Translate().CapitalizeFirst() + "...";
+                    TaggedString label = "SWCP_ChooseAnimalCage".Translate().CapitalizeFirst() + "...";
                     Widgets.MouseAttachedLabel(label);
                 }
                 else
                 {
-                    TaggedString label = "FCP_SelectThisCage".Translate();
+                    TaggedString label = "SWCP_SelectThisCage".Translate();
 
                     Widgets.MouseAttachedLabel(label);
                 }

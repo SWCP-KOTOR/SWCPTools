@@ -1,27 +1,38 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.IO;
 
-namespace SWCP.Core.Unity;
-
-[StaticConstructorOnStartup]
-public static class Shaders
+namespace SWCP.Core.Unity
 {
-    private static Dictionary<string, Shader> _lookupShaders;
-    
-    public static readonly Shader ZoomShader = LoadShader(Path.Combine("Assets", "Shaders", "ZoomShader.shader"));
-    
-    public static Shader LoadShader(string shaderName)
+    [StaticConstructorOnStartup]
+    public static class Shaders
     {
-        _lookupShaders ??= new Dictionary<string, Shader>();
-        if (!_lookupShaders.ContainsKey(shaderName))
+        private static readonly Dictionary<string, Shader> _lookupShaders = new Dictionary<string, Shader>();
+        public static readonly Shader ZoomShader;
+
+        static Shaders()
         {
-            _lookupShaders[shaderName] = SWCPCoreMod.mod.MainBundle.LoadAsset<Shader>(shaderName);
+            ZoomShader = LoadShader(Path.Combine("Assets", "Shaders", "ZoomShader.shader"));
         }
-        
-        Shader shader = _lookupShaders[shaderName];
-        if (shader != null) 
-            return shader;
-        
-        SWCPLog.Warning($"Could not load shader: {shaderName}");
-        return ShaderDatabase.DefaultShader;
+
+        public static Shader LoadShader(string shaderName)
+        {
+            if (!_lookupShaders.TryGetValue(shaderName, out var shader))
+            {
+                if (SWCPCoreMod.mod?.MainBundle == null)
+                {
+                    SWCPLog.Warning($"MainBundle is not initialized, cannot load shader: {shaderName}");
+                    return ShaderDatabase.DefaultShader;
+                }
+
+                shader = SWCPCoreMod.mod.MainBundle.LoadAsset<Shader>(shaderName);
+                if (shader != null)
+                {
+                    _lookupShaders[shaderName] = shader;
+                }
+            }
+
+            return shader ?? ShaderDatabase.DefaultShader;
+        }
     }
 }

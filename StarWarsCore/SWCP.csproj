@@ -4,17 +4,33 @@
     <RootNamespace>SWCP.Core</RootNamespace>
     <AssemblyName>SWCP_Core</AssemblyName>
     <AssemblyTitle>Fallout Core Module</AssemblyTitle>
+    <BaseOutputPath>L:\SteamLibrary\steamapps\common\RimWorld\Mods\SWCP\1.6\Assemblies</BaseOutputPath>
+    <PackageOutputPath>L:\SteamLibrary\steamapps\common\RimWorld\Mods\SWCP\1.6\Assemblies</PackageOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>portable</DebugType>
-    <OutputPath>..\..\..\1.6\Assemblies\</OutputPath>
+    <DebugType>embedded</DebugType>
+    <OutputPath>L:\SteamLibrary\steamapps\common\RimWorld\Mods\SWCP\1.6\Assemblies</OutputPath>
     <DefineConstants>DEBUG;TRACE;v1_5;</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <OutputPath>..\..\..\1.6\Assemblies\</OutputPath>
+    <OutputPath>L:\SteamLibrary\steamapps\common\RimWorld\Mods\SWCP\1.6\Assemblies</OutputPath>
     <DefineConstants>TRACE;v1_5;</DefineConstants>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="LegendaryEffectWorkers\**" />
+    <EmbeddedResource Remove="LegendaryEffectWorkers\**" />
+    <None Remove="LegendaryEffectWorkers\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Components\LegendaryEffectGameTracker.cs" />
+    <Compile Remove="Defs\LegendaryEffectDef.cs" />
+    <Compile Remove="Defs\ModExtension_LegendaryEffect.cs" />
+    <Compile Remove="Stats\LegendaryStatDrawEntry.cs" />
+    <Compile Remove="Stats\StatPart_LegendaryEffects.cs" />
+    <Compile Remove="Stats\StatPart_Rapid.cs" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -267,5 +283,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Update="Krafs.Rimworld.Ref" Version="1.6.4523" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Stats\" />
   </ItemGroup>
 </Project>
